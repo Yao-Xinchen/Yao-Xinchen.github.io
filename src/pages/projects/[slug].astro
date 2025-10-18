@@ -50,6 +50,16 @@ const { project } = Astro.props;
 						View Source Code
 					</a>
 				)}
+				{project.website && (
+					<a href={project.website} target="_blank" rel="noopener noreferrer" class="quick-link">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<circle cx="12" cy="12" r="10"/>
+							<line x1="2" y1="12" x2="22" y2="12"/>
+							<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+						</svg>
+						Visit Website
+					</a>
+				)}
 				{project.video && (
 					<a href={project.video} target="_blank" rel="noopener noreferrer" class="quick-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -128,6 +138,21 @@ const { project } = Astro.props;
 						</a>
 					))}
 
+					{/* Website Link */}
+					{project.website && (
+						<a href={project.website} target="_blank" rel="noopener noreferrer" class="bottom-link">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<circle cx="12" cy="12" r="10"/>
+								<line x1="2" y1="12" x2="22" y2="12"/>
+								<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+							</svg>
+							<div>
+								<div class="link-title">Project Website</div>
+								<div class="link-description">Visit the live website</div>
+							</div>
+						</a>
+					)}
+
 					{/* Video/Paper Link */}
 					{project.video && (
 						<a href={project.video} target="_blank" rel="noopener noreferrer" class="bottom-link">
@@ -168,7 +193,7 @@ const { project } = Astro.props;
 <style>
 	/* Breadcrumb */
 	.breadcrumb {
-		max-width: 900px;
+		max-width: 1100px;
 		margin: 0 auto;
 		padding: 2rem 2rem 0;
 	}
@@ -187,7 +212,7 @@ const { project } = Astro.props;
 
 	/* Project Header */
 	.project-header {
-		max-width: 900px;
+		max-width: 1100px;
 		margin: 2rem auto;
 		padding: 0 2rem;
 	}
@@ -260,7 +285,7 @@ const { project } = Astro.props;
 
 	/* Main Content */
 	.project-main {
-		max-width: 900px;
+		max-width: 1100px;
 		margin: 3rem auto;
 		padding: 0 2rem 4rem;
 	}
@@ -381,7 +406,7 @@ const { project } = Astro.props;
 
 	/* Back to Projects */
 	.back-to-projects {
-		max-width: 900px;
+		max-width: 1100px;
 		margin: 0 auto;
 		padding: 0 2rem 4rem;
 		text-align: center;

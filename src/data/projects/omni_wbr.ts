@@ -10,16 +10,14 @@ import type { Project } from '../types';
 export const omni_wbr: Project = {
 	// Basic Information
 	slug: "omni-wbr",
-	title: "OmniWBR",
-	category: "RL Algorithm", // TODO: Change to "Low-Level Control" if applicable
+	title: "Omni WBR",
+	category: "RL Algorithm",
 
 	// Short description for homepage (2-3 sentences)
-	// TODO: Write a brief, engaging overview
-	description: "Brief description of what this project does and why it's interesting. Explain the problem it solves and your key contribution.",
+	description: "Omni-directional Wheeled-Biped Robot Control with Emergent Gaits",
 
 	// Technologies used
-	// TODO: List all technologies, languages, frameworks, tools used
-	technologies: ["Python", "Technology2", "Technology3"],
+	technologies: ["Isaac Lab", "Teacher-Student Framework", "PPO", "PyTorch"],
 
 	// Project image (place image in /public/projects/)
 	// TODO: Add your main project image
@@ -27,27 +25,19 @@ export const omni_wbr: Project = {
 
 	// Links
 	// TODO: Update with actual links (set to undefined if not available)
-	github: "https://github.com/yourusername/project", // or undefined
-	video: "https://youtube.com/watch?v=...", // or undefined
+	github: undefined,
+	video: undefined,
 
 	// === DETAILED PAGE CONTENT ===
 	// Define your own sections with any headings you want
 	// TODO: Add sections that make sense for your project
 	sections: [
 		{
-			heading: "Introduction", // TODO: Use your own heading
-			content: `Write your content here.
-
-Newlines are preserved.
-You can write multiple paragraphs.`,
-		},
-		{
-			heading: "Another Section", // TODO: Use any heading you want
-			content: `More content here.
-
-- You can use lists
-- Technical details
-- Whatever you need`,
+			heading: "Overview", // TODO: Use your own heading
+			content: `	Wheeled-biped robots combine the energy efficiency and speed of wheeled locomotion with the terrain adaptability of legged systems, making them ideal for applications like delivery, inspection, and rescue. However, existing control methods face critical limitations:
+1. Model-based approaches rely on simplified dynamics and non-holonomic constraints that restrict omnidirectional mobility and terrain adaptability, essentially reducing the robot to a "Segway with legs"
+2. Existing RL-based methods remain constrained to forward motion with explicit mode switching, lacking true omnidirectional mobility and adaptive hybrid locomotion
+3. The potential of the wheeled-biped structure for adaptive hybrid locomotion across diverse terrains remains largely unexploited`,
 		},
 		// Add as many sections as you need with custom headings:
 		// {

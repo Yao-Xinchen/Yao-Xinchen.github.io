@@ -17,10 +17,11 @@ export interface Project {
 	description: string;
 	image: string;
 	technologies: string[];
-	category: "Low-Level Control" | "RL Algorithm";
+	category: "Low-Level Control" | "RL Algorithm" | "Perception";
 	// Links can be a single URL string or array of detailed links
 	github?: string | ProjectLink[];
 	video?: string;
+	website?: string;
 	// Additional custom links
 	links?: ProjectLink[];
 	// Detailed content for project pages - flexible sections
