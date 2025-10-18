@@ -50,40 +50,12 @@ export const where_to_learn: Project = {
 	sections: [
 		{
 			heading: "Overview",
-			content: `Write about your APG-PPO algorithm here.
-
-What problem does it solve? What makes it novel?
-
-You can write multiple paragraphs - newlines will be preserved.`,
+			content: `On-policy reinforcement learning (RL) algorithms have demonstrated great potential in robotic control, where effective exploration is crucial for efficient and high-quality policy learning. However, how to encourage the agent to explore the better trajectories efficiently remains a challenge. Most existing methods incentivize exploration by maximizing the policy entropy or encouraging novel state visiting regard- less of the potential state value. We propose a new form of directed exploration that uses analytical policy gradients from a differentiable dynamics model to inject task-aware, physics-guided guidance, thereby steering the agent towards high-reward regions for accelerated and more effective policy learning. We integrate our exploration approach into a widely used on-policy RL algorithm, Proximal Policy Optimization, to test and demonstrate its effectiveness. We conduct extensive benchmark experiments and demonstrate the effectiveness of the proposed exploration augmentation method. We further test our approach on a 6-DOF point-foot robot for velocity tracking locomotion, and conduct the simulation test and implement a successful sim-to-real deployment as the ultimate validation.`,
 		},
-		{
-			heading: "Technical Details", // Or any heading you want
-			content: `Explain the technical approach.
-
-- Algorithm design
-- Implementation details
-- etc.`,
-		},
-		{
-			heading: "Results", // Or "Publication", "Impact", etc.
-			content: `Share your results and publication details.
-
-Published in [Conference/Journal Name] [Year].
-
-Performance metrics, key findings, etc.`,
-		},
-		// Add more sections as needed with any headings you want
-		// {
-		//   heading: "Your Custom Heading",
-		//   content: "Your content here..."
-		// },
 	],
 
 	// Additional images for the project detail page
 	// TODO: Add more images showcasing your work
 	images: [
-		"/projects/apgppo.png",
-		// Uncomment and add more images as needed:
-		// "/projects/apgppo-results.png",
 	],
 };

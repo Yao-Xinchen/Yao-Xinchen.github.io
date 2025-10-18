@@ -8,10 +8,6 @@ import type { Project } from './types';
 import { where_to_learn } from './projects/where_to_learn';
 import { omni_wbr } from './projects/omni_wbr';
 
-// TODO: Import additional project files as you create them
-// Example:
-// import { projectName } from './projects/project-name';
-
 // Export all projects as an array
 // TODO: Add your other projects to this array
 export const projects: Project[] = [

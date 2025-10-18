@@ -6,10 +6,13 @@ import { projects } from '../data/projects';
 
 // TODO: Update with your actual skills
 const skills = {
-	"Programming": ["Python", "C++", "Bash"],
-	"Robotics": ["ROS/ROS2", "Control Systems", "Reinforcement Learning", "SLAM"],
-	"Systems": ["Linux/Unix", "GPU Computation", "Embedded Systems"],
-	"Tools": ["CAD", "Git", "Docker", "PyTorch/TensorFlow"]
+	"Robotics": ["Robotics Learning", "Model-Based Control", "Low-Level Control"],
+	"Programming": ["Python", "C++", "CUDA", "MATLAB", "Rust"],
+	"Systems": ["Linux/Unix", "Embedded Systems"],
+	"Tools": [
+		"Isaac Lab", "Genesis", "Mujoco Playground", "PyTorch", "Jax",
+		"ROS/ROS2", "LIO", "CAD",
+	]
 };
 ---
 
@@ -20,12 +23,12 @@ const skills = {
 			<!-- TODO: Update with your actual name and information -->
 			<h1 class="hero-title">Xinchen Yao</h1>
 			<p class="hero-subtitle">Computer Engineering Student</p>
-			<p class="hero-tagline">Specializing in Robot Control Systems & Reinforcement Learning</p>
+			<p class="hero-tagline">Specializing in Robotics Learning and Low-Level Controlling</p>
 
 			<!-- TODO: Update this brief intro about yourself -->
 			<p class="hero-description">
-				Passionate about robotics from sensors to algorithms. Started with low-level control systems
-				and now exploring the intersection of reinforcement learning and autonomous robotics.
+				Passionate about robotics from sensors to algorithms. Started with low-level control systems.
+				Now, focusing on learning-based robotics.
 			</p>
 
 			<a href="#projects" class="hero-cta">View Projects ↓</a>
@@ -64,19 +67,26 @@ const skills = {
 						</svg>
 						<span>GitHub</span>
 					</a>
-					<a href="mailto:your.email@example.com" class="contact-link">
+					<a href="mailto:yao29@illinois.edu" class="contact-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<rect x="2" y="4" width="20" height="16" rx="2"/>
 							<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
 						</svg>
-						<span>Email</span>
+						<span>yao29@illinois.edu</span>
 					</a>
-					<a href="https://lab-website.edu" target="_blank" rel="noopener noreferrer" class="contact-link">
+					<a href="mailto:xinchen.22@intl.zju.edu.cn" class="contact-link">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<rect x="2" y="4" width="20" height="16" rx="2"/>
+							<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+						</svg>
+						<span>xinchen.22@intl.zju.edu.cn</span>
+					</a>
+					<a href="https://physicalintelligence-lab.github.io/" target="_blank" rel="noopener noreferrer" class="contact-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
 							<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
 						</svg>
-						<span>Lab Website</span>
+						<span>PHI Lab Website</span>
 					</a>
 				</div>
 			</div>
@@ -87,7 +97,7 @@ const skills = {
 			<h2 class="section-title">Projects</h2>
 			<p class="section-description">
 				<!-- TODO: Update this description of your projects -->
-				A collection of robotics projects spanning low-level control systems and reinforcement learning algorithms.
+				A collection of robotics projects.
 			</p>
 
 			<div class="projects-grid">
@@ -309,6 +319,7 @@ const skills = {
 		border-radius: 8px;
 		transition: all 0.2s ease;
 		color: var(--color-text);
+		min-width: 0; /* Allow flexbox to shrink */
 	}
 
 	.contact-link:hover {
@@ -319,6 +330,14 @@ const skills = {
 
 	.contact-link svg {
 		flex-shrink: 0;
+	}
+
+	.contact-link span {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-size: 0.875rem;
+		min-width: 0; /* Allow text to shrink */
 	}
 
 	/* Projects Section */
