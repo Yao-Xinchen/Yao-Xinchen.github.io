@@ -2,21 +2,82 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<!-- TODO: Update these meta tags with your information -->
+		<title>Your Name - Robotics Portfolio</title>
+		<meta name="description" content="Computer Engineering student specializing in robot control systems and reinforcement learning algorithms." />
+		<meta name="author" content="Your Name" />
+
+		<!-- Open Graph / Social Media -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Your Name - Robotics Portfolio" />
+		<meta property="og:description" content="Computer Engineering student specializing in robot control systems and reinforcement learning algorithms." />
+
+		<!-- Preload fonts for better performance -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
+	:root {
+		/* TODO: Customize these colors if desired */
+		--color-primary: #1e40af; /* Deep blue */
+		--color-accent: #06b6d4; /* Cyan */
+		--color-text: #1f2937; /* Dark gray */
+		--color-text-light: #6b7280; /* Medium gray */
+		--color-background: #ffffff; /* White */
+		--color-surface: #f9fafb; /* Light gray */
+		--color-border: #e5e7eb; /* Border gray */
+
+		--font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		--font-mono: 'Monaco', 'Courier New', monospace;
+
+		--border-radius: 12px;
+		--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
 	html,
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		font-family: var(--font-family);
+		color: var(--color-text);
+		background-color: var(--color-background);
+		line-height: 1.6;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		font-weight: 600;
+	}
+
+	a {
+		color: var(--color-primary);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	a:hover {
+		color: var(--color-accent);
 	}
 </style>
