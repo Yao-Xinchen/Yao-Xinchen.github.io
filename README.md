@@ -1,6 +1,6 @@
 # Personal Robotics Portfolio
 
-A modern portfolio website built with [Astro](https://astro.build) to showcase robotics projects.
+A modern portfolio website built with [Astro](https://astro.build) to showcase my robotics projects.
 
 ## 📁 Project Structure
 
