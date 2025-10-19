@@ -28,6 +28,59 @@ const skills = {
 		"ROS/ROS2", "SLAM", "STM32", "CAD",
 	]
 };
+
+// Research experiences timeline
+const experiences = [
+	{
+		period: "Sep 2023 - Present",
+		role: "Software Group Leader",
+		institution: "ZJUI RoboMaster Team Meta",
+		description: "Designed a new ROS2-based control system (Meta-ROS) for all our robots. Also responsible for new member training and mechanics-controlling co-design.",
+		type: "major"
+	},
+	{
+		period: "Fall 2024",
+		role: "Ringbot Control",
+		institution: "UIUC ECE398 KIMLAB",
+		description: "Control system for Ringbot designed by KIMLAB.",
+		type: "minor"
+	},
+	{
+		period: "Fall 2024",
+		institution: "UIUC ECE391",
+		role: "Unix-Like OS",
+		description: "Implemented a Unix-like OS (kernel and shell) with RISC-V architecture.",
+		type: "minor"
+	},
+	{
+		period: "Sep 2024 - July 2025",
+		role: "Undergraduate Researcher",
+		institution: "UIUC Human Dynamics and Controls Lab",
+		description: "Optimizing low-level control and integrating new sensors for PURE ballbot. Tried to improve simulation on omnidirectional wheels.",
+		type: "major"
+	},
+	{
+		period: "Spring 2025",
+		role: "Autonomous Parking",
+		institution: "UIUC ECE484",
+		description: "Developed autonomous parking for GEM vehicle.",
+		type: "minor"
+	},
+	{
+		period: "Spring 2025",
+		role: "CNN in CUDA",
+		institution: "UIUC ECE408",
+		description: "Implemented a Convolutional Neural Network in CUDA.",
+		type: "minor"
+	},
+	{
+		period: "Aug 2025 - Present",
+		role: "Undergraduate Researcher",
+		institution: "ZJUI Physical Intelligence Lab",
+		description: "Working on robotic learning algorithms, mainly about RL exploration and sim-to-real transfer. Aiming to motivate emergent behaviors with simple designs.",
+		type: "major"
+	},
+];
 ---
 
 <Layout>
@@ -56,7 +109,37 @@ const skills = {
 				Now, focusing on learning-based robotics.
 			</p>
 
-			<a href="#projects" class="hero-cta">View Projects ↓</a>
+			<a href="#experience" class="hero-cta">View Experience ↓</a>
+		</div>
+	</section>
+
+	<!-- Research Experience Timeline -->
+	<section id="experience" class="timeline-section">
+		<div class="timeline-container">
+			<div class="timeline-header">
+				<h2 class="timeline-title">Research Experience</h2>
+				<div class="timeline-order-hint">
+					<span class="order-text">Latest</span>
+					<span class="order-arrow">→</span>
+				</div>
+			</div>
+			<div class="timeline-scroll-wrapper">
+				<div class="timeline-scroll" id="timeline-scroll">
+					{experiences.map((exp, index) => (
+						<div class={`timeline-item ${exp.type === 'minor' ? 'timeline-item-minor' : ''}`}>
+							<div class={`timeline-card ${exp.type === 'minor' ? 'timeline-card-minor' : ''}`}>
+								<div class="timeline-period">{exp.period}</div>
+								<h3 class="timeline-role">{exp.role}</h3>
+								<div class="timeline-institution">{exp.institution}</div>
+								{exp.description && <p class="timeline-description">{exp.description}</p>}
+							</div>
+							{index < experiences.length - 1 && (
+								<div class="timeline-connector-line"></div>
+							)}
+						</div>
+					))}
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -301,11 +384,224 @@ const skills = {
 		box-shadow: var(--shadow-lg);
 	}
 
+	/* Research Experience Timeline */
+	.timeline-section {
+		padding: 4rem 0 0rem;
+		overflow: hidden;
+	}
+
+	.timeline-container {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.timeline-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.timeline-title {
+		font-size: 2.5rem;
+		color: var(--color-text);
+		margin: 0;
+	}
+
+	.timeline-order-hint {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		color: var(--color-text-light);
+		font-size: 1.25rem;
+	}
+
+	.order-arrow {
+		font-size: 1.25rem;
+		color: var(--color-primary);
+		font-weight: bold;
+	}
+
+	.order-text {
+		font-weight: 500;
+	}
+
+	.order-divider {
+		color: var(--color-border);
+	}
+
+	.timeline-scroll-wrapper {
+		position: relative;
+		padding-bottom: 2rem;
+	}
+
+	.timeline-scroll {
+		display: flex;
+		gap: 2rem;
+		overflow-x: auto;
+		overflow-y: visible;
+		scroll-behavior: smooth;
+		padding: 2rem 1rem 3rem;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-primary) transparent;
+	}
+
+	.timeline-scroll::-webkit-scrollbar {
+		height: 8px;
+	}
+
+	.timeline-scroll::-webkit-scrollbar-track {
+		background: rgba(0, 0, 0, 0.05);
+		border-radius: 4px;
+	}
+
+	.timeline-scroll::-webkit-scrollbar-thumb {
+		background: var(--color-primary);
+		border-radius: 4px;
+	}
+
+	.timeline-scroll::-webkit-scrollbar-thumb:hover {
+		background: var(--color-accent);
+	}
+
+	.timeline-item {
+		flex: 0 0 375px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.timeline-card {
+		background: white;
+		border-radius: var(--border-radius);
+		padding: 1.5rem;
+		box-shadow: var(--shadow-md);
+		border: 2px solid var(--color-border);
+		transition: all 0.3s ease;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.timeline-card:hover {
+		transform: translateY(-8px);
+		box-shadow: var(--shadow-lg);
+		border-color: var(--color-primary);
+	}
+
+	.timeline-period {
+		color: var(--color-primary);
+		font-weight: 600;
+		font-size: 0.9rem;
+		margin-bottom: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.timeline-role {
+		font-size: 1.25rem;
+		color: var(--color-text);
+		margin-bottom: 0.5rem;
+		font-weight: 600;
+	}
+
+	.timeline-institution {
+		color: var(--color-text-light);
+		font-size: 1rem;
+		margin-bottom: 0.75rem;
+		font-weight: 500;
+	}
+
+	.timeline-description {
+		color: var(--color-text-light);
+		font-size: 0.95rem;
+		line-height: 1.6;
+		flex-grow: 1;
+	}
+
+	/* Minor experience cards - smaller and less prominent */
+	.timeline-item-minor {
+		flex: 0 0 250px;
+		align-self: flex-end;
+		margin-top: 1rem;
+	}
+
+	.timeline-card-minor {
+		height: 180px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		opacity: 0.9;
+	}
+
+	.timeline-card-minor:hover {
+		transform: translateY(-4px);
+		opacity: 1;
+	}
+
+	.timeline-card-minor .timeline-period {
+		font-size: 0.8rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.timeline-card-minor .timeline-role {
+		font-size: 1rem;
+		margin-bottom: 0.35rem;
+	}
+
+	.timeline-card-minor .timeline-institution {
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.timeline-card-minor .timeline-description {
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+
+	/* Horizontal connector lines between cards */
+	.timeline-connector-line {
+		position: absolute;
+		bottom: 3rem;
+		right: -2rem;
+		width: 2rem;
+		height: 2px;
+		background: var(--color-primary);
+		z-index: 0;
+	}
+
+	.timeline-connector-line::before {
+		content: '';
+		position: absolute;
+		right: -4px;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 8px;
+		height: 8px;
+		background: var(--color-primary);
+		border-radius: 50%;
+	}
+
+	.timeline-line {
+		position: absolute;
+		bottom: 37px;
+		left: 1rem;
+		right: 1rem;
+		height: 3px;
+		background: transparent;
+		z-index: 1;
+	}
+
+
 	/* Main Container Layout */
 	.main-container {
 		max-width: 1400px;
 		margin: 0 auto;
-		padding: 4rem 2rem;
+		padding: 0rem 2rem 4rem;
 		display: grid;
 		grid-template-columns: 280px 1fr;
 		gap: 3rem;
@@ -620,6 +916,37 @@ const skills = {
 		.section-title {
 			font-size: 2rem;
 		}
+
+		/* Timeline responsive */
+		.timeline-title {
+			font-size: 2rem;
+		}
+
+		.timeline-order-hint {
+			font-size: 0.85rem;
+		}
+
+		.timeline-container {
+			padding: 0 1rem;
+		}
+
+		.timeline-item {
+			flex: 0 0 280px;
+		}
+
+		.timeline-item-minor {
+			flex: 0 0 240px;
+		}
+
+		.timeline-card {
+			height: auto;
+			min-height: 220px;
+		}
+
+		.timeline-card-minor {
+			height: auto;
+			min-height: 160px;
+		}
 	}
 </style>
 
@@ -638,5 +965,14 @@ const skills = {
 				});
 			}
 		});
+	});
+
+	// Auto-scroll timeline to the right (newest experience) on page load
+	window.addEventListener('load', () => {
+		const timelineScroll = document.getElementById('timeline-scroll');
+		if (timelineScroll) {
+			// Scroll to the far right to show newest experiences first
+			timelineScroll.scrollLeft = timelineScroll.scrollWidth;
+		}
 	});
 </script>
