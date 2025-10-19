@@ -149,10 +149,10 @@ const experiences = [
 		<div class="timeline-container">
 			<div class="timeline-header">
 				<h2 class="timeline-title">Research Experience</h2>
-				<div class="timeline-order-hint">
+				<button class="timeline-scroll-button" id="scroll-to-latest" aria-label="Scroll to latest experience">
 					<span class="order-text">Latest</span>
 					<span class="order-arrow">→</span>
-				</div>
+				</button>
 			</div>
 			<div class="timeline-scroll-wrapper">
 				<div class="timeline-scroll" id="timeline-scroll">
@@ -495,26 +495,36 @@ const experiences = [
 		margin: 0;
 	}
 
-	.timeline-order-hint {
+	.timeline-scroll-button {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
-		color: var(--color-text-light);
-		font-size: 1.25rem;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: var(--color-surface);
+		color: var(--color-primary);
+		border: none;
+		border-radius: 8px;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		box-shadow: var(--shadow-md);
 	}
 
-	.order-arrow {
+	.timeline-scroll-button:hover {
+		background: var(--color-primary);
+		color: var(--color-surface);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.timeline-scroll-button .order-arrow {
 		font-size: 1.25rem;
-		color: var(--color-primary);
 		font-weight: bold;
 	}
 
-	.order-text {
-		font-weight: 500;
-	}
-
-	.order-divider {
-		color: var(--color-border);
+	.timeline-scroll-button .order-text {
+		font-weight: 600;
 	}
 
 	.timeline-scroll-wrapper {
@@ -532,6 +542,9 @@ const experiences = [
 		-webkit-overflow-scrolling: touch;
 		scrollbar-width: thin;
 		scrollbar-color: var(--color-primary) transparent;
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
 	}
 
 	.timeline-scroll::-webkit-scrollbar {
@@ -1036,8 +1049,9 @@ const experiences = [
 			font-size: 2rem;
 		}
 
-		.timeline-order-hint {
-			font-size: 0.85rem;
+		.timeline-scroll-button {
+			padding: 0.6rem 1.2rem;
+			font-size: 0.9rem;
 		}
 
 		.timeline-container {
@@ -1089,4 +1103,53 @@ const experiences = [
 			timelineScroll.scrollLeft = timelineScroll.scrollWidth;
 		}
 	});
+
+	// "Latest" button to scroll to the rightmost position
+	const scrollToLatestBtn = document.getElementById('scroll-to-latest');
+	const timelineScrollElement = document.getElementById('timeline-scroll');
+
+	if (scrollToLatestBtn && timelineScrollElement) {
+		scrollToLatestBtn.addEventListener('click', () => {
+			timelineScrollElement.scrollTo({
+				left: timelineScrollElement.scrollWidth,
+				behavior: 'smooth'
+			});
+		});
+	}
+
+	// Drag to scroll functionality for timeline
+	const timelineScroll = document.getElementById('timeline-scroll');
+	if (timelineScroll) {
+		let isDown = false;
+		let startX: number;
+		let scrollLeft: number;
+
+		timelineScroll.addEventListener('mousedown', (e) => {
+			isDown = true;
+			timelineScroll.style.cursor = 'grabbing';
+			startX = e.pageX - timelineScroll.offsetLeft;
+			scrollLeft = timelineScroll.scrollLeft;
+		});
+
+		timelineScroll.addEventListener('mouseleave', () => {
+			isDown = false;
+			timelineScroll.style.cursor = 'grab';
+		});
+
+		timelineScroll.addEventListener('mouseup', () => {
+			isDown = false;
+			timelineScroll.style.cursor = 'grab';
+		});
+
+		timelineScroll.addEventListener('mousemove', (e) => {
+			if (!isDown) return;
+			e.preventDefault();
+			const x = e.pageX - timelineScroll.offsetLeft;
+			const walk = (x - startX) * 2; // Scroll speed multiplier
+			timelineScroll.scrollLeft = scrollLeft - walk;
+		});
+
+		// Set initial cursor
+		timelineScroll.style.cursor = 'grab';
+	}
 </script>
