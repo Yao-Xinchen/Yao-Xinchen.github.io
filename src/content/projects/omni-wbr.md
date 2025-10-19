@@ -15,6 +15,10 @@ Wheeled-biped robots combine the energy efficiency and speed of wheeled locomoti
 2. Existing RL-based methods remain constrained to forward motion with explicit mode switching, lacking true omnidirectional mobility and adaptive hybrid locomotion
 3. The potential of the wheeled-biped structure for adaptive hybrid locomotion across diverse terrains remains largely unexploited
 
+## Status
+
+We have trained a policy and evaluated it in both Isaac Lab and Mujoco simulators, demonstrating emergent gaits and adaptive hybrid locomotion. We are currently working on experiments and sim-to-real transfer. Our paper is under preparation for submission to IEEE RA-L.
+
 ## Isaac Lab Evaluation
 
 The trained policy exhibits emergent gaits, seamlessly transitioning between wheeled and legged locomotion based on demands.
@@ -38,3 +42,16 @@ We have deployed the trained policy to Mujoco for further evaluation and simulat
 	</video>
 	<p>Policy Evaluation in Mujoco</p>
 </div>
+
+## Deployment onto Real Robot
+
+We are trying to deploy the trained policy onto our real Tron1 robot. But we are still facing engineering problems in sim-to-real transfer. This video shows our initial attempt of deployment.
+
+<div style="text-align: center;">
+	<video width="80%" controls>
+		<source src="/projects/omni_wbr_real.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+	<p>Initial Sim-to-Real Deployment Attempt</p>
+</div>
+
