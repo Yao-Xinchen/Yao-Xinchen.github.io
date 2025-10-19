@@ -36,7 +36,8 @@ const experiences = [
 		role: "Software Group Leader",
 		institution: "ZJUI RoboMaster Team Meta",
 		description: "Designed a new ROS2-based control system (Meta-ROS) for all our robots. Also responsible for new member training and mechanics-controlling co-design.",
-		type: "major"
+		type: "major",
+		website: "https://github.com/Meta-Team"
 	},
 	{
 		period: "Fall 2024",
@@ -57,7 +58,8 @@ const experiences = [
 		role: "Undergraduate Researcher",
 		institution: "UIUC Human Dynamics and Controls Lab",
 		description: "Optimizing low-level control and integrating new sensors for PURE ballbot. Tried to improve simulation on omnidirectional wheels.",
-		type: "major"
+		type: "major",
+		website: "https://hdcl.mechanical.illinois.edu/"
 	},
 	{
 		period: "Spring 2025",
@@ -78,7 +80,8 @@ const experiences = [
 		role: "Undergraduate Researcher",
 		institution: "ZJUI Physical Intelligence Lab",
 		description: "Working on robotic learning algorithms, mainly about RL exploration and sim-to-real transfer. Aiming to motivate emergent behaviors with simple designs.",
-		type: "major"
+		type: "major",
+		website: "https://physicalintelligence-lab.github.io/"
 	},
 ];
 ---
@@ -163,6 +166,16 @@ const experiences = [
 								<h3 class="timeline-role">{exp.role}</h3>
 								<div class="timeline-institution">{exp.institution}</div>
 								{exp.description && <p class="timeline-description">{exp.description}</p>}
+								{exp.website && exp.type === 'major' && (
+									<a href={exp.website} target="_blank" rel="noopener noreferrer" class="timeline-website-btn">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<circle cx="12" cy="12" r="10"/>
+											<line x1="2" y1="12" x2="22" y2="12"/>
+											<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+										</svg>
+										Lab Website
+									</a>
+								)}
 							</div>
 							{index < experiences.length - 1 && (
 								<div class="timeline-connector-line"></div>
@@ -202,13 +215,6 @@ const experiences = [
 						</svg>
 						<span>xinchen.22@intl.zju.edu.cn</span>
 					</a>
-					<!-- <a href="https://physicalintelligence-lab.github.io/" target="_blank" rel="noopener noreferrer" class="contact-link">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-							<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-						</svg>
-						<span>PHI Lab Website</span>
-					</a> -->
 				</div>
 			</div>
 
@@ -620,6 +626,36 @@ const experiences = [
 		font-size: 0.95rem;
 		line-height: 1.6;
 		flex-grow: 1;
+		margin-bottom: 0.75rem;
+	}
+
+	.timeline-website-btn {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.625rem 1.25rem;
+		color: var(--color-primary);
+		background: white;
+		border: 2px solid var(--color-primary);
+		border-radius: 6px;
+		font-size: 0.875rem;
+		font-weight: 500;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		margin-top: auto;
+		width: fit-content;
+		align-self: flex-start;
+	}
+
+	.timeline-website-btn:hover {
+		background: var(--color-primary);
+		color: white;
+		transform: translateY(-1px);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.timeline-website-btn svg {
+		flex-shrink: 0;
 	}
 
 	/* Minor experience cards - smaller and less prominent */
@@ -1093,15 +1129,6 @@ const experiences = [
 				});
 			}
 		});
-	});
-
-	// Auto-scroll timeline to the right (newest experience) on page load
-	window.addEventListener('load', () => {
-		const timelineScroll = document.getElementById('timeline-scroll');
-		if (timelineScroll) {
-			// Scroll to the far right to show newest experiences first
-			timelineScroll.scrollLeft = timelineScroll.scrollWidth;
-		}
 	});
 
 	// "Latest" button to scroll to the rightmost position
