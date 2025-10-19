@@ -21,7 +21,7 @@ export const omni_wbr: Project = {
 
 	// Project image (place image in /public/projects/)
 	// TODO: Add your main project image
-	image: "/projects/project-name.jpg",
+	image: "/projects/omni_wbr.png",
 
 	// Links
 	// TODO: Update with actual links (set to undefined if not available)
@@ -39,6 +39,29 @@ export const omni_wbr: Project = {
 2. Existing RL-based methods remain constrained to forward motion with explicit mode switching, lacking true omnidirectional mobility and adaptive hybrid locomotion
 3. The potential of the wheeled-biped structure for adaptive hybrid locomotion across diverse terrains remains largely unexploited`,
 		},
+		{
+			heading: "Isaac Lab Evaluation",
+			content: `	The trained policy exhibits emergent gaits, seamlessly transitioning between wheeled and legged locomotion based on demands.
+<div style="text-align: center;">
+	<video width="80%" controls>
+		<source src="/projects/omni_wbr_lab.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+	<p>Policy Evaluation in Isaac Lab</p>
+</div>`,
+		},
+		{
+			heading: "Sim-to-Sim in Mujoco",
+			content: `	We have deployed the trained policy to Mujoco for further evaluation and simulation.
+<div style="text-align: center;">
+	<video width="80%" controls>
+		<source src="/projects/omni_wbr_mujoco.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+	<p>Policy Evaluation in Mujoco</p>
+</div>
+`
+		}
 		// Add as many sections as you need with custom headings:
 		// {
 		//   heading: "Implementation",
