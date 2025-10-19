@@ -1,7 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// Import projects from shared data file
-import { projects } from '../data/projects';
+import { getCollection } from 'astro:content';
+
+// Get projects from Content Collections
+const projectsCollection = await getCollection('projects');
+const projects = projectsCollection
+	.map(p => ({
+		...p.data,
+		slug: p.id.replace('.md', ''),
+	}))
+	// Sort by order field (if present), then by slug
+	.sort((a, b) => {
+		if (a.order !== undefined && b.order !== undefined) {
+			return a.order - b.order;
+		}
+		if (a.order !== undefined) return -1;
+		if (b.order !== undefined) return 1;
+		return a.slug.localeCompare(b.slug);
+	});
 
 const skills = {
 	"Robotics": ["Robotics Learning", "Model-Based Control", "Low-Level Control"],
