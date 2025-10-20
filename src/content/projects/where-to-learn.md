@@ -5,16 +5,16 @@ category: "RL Algorithm"
 technologies: ["Jax", "Brax", "Mujoco Playground", "PPO", "APG"]
 order: 0
 image: "/projects/where_to_learn.jpg"
-github:
-  - title: "Algorithm"
-    url: "https://github.com/Yao-Xinchen/brax"
-    description: "Implementation of our algorithm in Brax"
-  - title: "Training Code"
-    url: "https://github.com/Yao-Xinchen/philab-mujoco"
-    description: "Policy training for Tron1 robot"
-  - title: "Deployment Code"
-    url: "https://github.com/Yao-Xinchen/tron1-rl-deploy-python"
-    description: "Policy deployment on Tron1 robot"
+# github:
+#   - title: "Algorithm"
+#     url: "https://github.com/Yao-Xinchen/brax"
+#     description: "Implementation of our algorithm in Brax"
+#   - title: "Training Code"
+#     url: "https://github.com/Yao-Xinchen/philab-mujoco"
+#     description: "Policy training for Tron1 robot"
+#   - title: "Deployment Code"
+#     url: "https://github.com/Yao-Xinchen/tron1-rl-deploy-python"
+#     description: "Policy deployment on Tron1 robot"
 video: "https://wheretolearn.github.io/static/videos/apg_aug_explore_video.mp4"
 website: "https://wheretolearn.github.io/"
 ---
