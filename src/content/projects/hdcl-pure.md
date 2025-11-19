@@ -3,6 +3,7 @@ title: "HDCL PURE Gen3"
 description: "Optimizing low-level control and integrating new sensors for PURE ballbot."
 category: "Low-Level Control"
 technologies: ["Communication Protocols", "Embedded System", "Genesis"]
+order: 4
 image: "/projects/hdcl_pure.png"
 
 # Optional: Single GitHub repo
